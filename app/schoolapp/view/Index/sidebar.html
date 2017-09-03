@@ -1,0 +1,79 @@
+<!doctype html>
+<html class="no-js">
+<head>
+{include file="Index/style" /}
+<link rel="stylesheet" href="/static/css/demo.css">
+
+<script src="/static/js/app.js"></script>
+<script src="/static/js/sidebar.js"></script>
+<title>导航</title>
+</head>
+
+<body>
+
+
+
+<div class="nav-navicon admin-main admin-sidebar">
+    
+    
+    <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎系统管理员：admin</div>
+    <div class="sideMenu">
+      <h3 class=" glyphicon glyphicon-user"><em></em> 用户管理</h3>
+      <ul>
+        <li><a href="../user/user" target="main">用户信息</a></li>
+      </ul>
+      <h3 class=" glyphicon glyphicon-book"><em></em> 线下培训</h3>
+      <ul>
+        <li><a href="../OfflineCourse/show" target="main">课程查看</a></li>
+        <li><a href="user/offCourse.php?action=add" target="main">新增课程</a></li>
+      </ul>
+      <h3 class="glyphicon glyphicon-phone"><em></em> 线上课程</h3>
+      <ul>
+        <li><a href="../admin/onlineCourse.php?action=show" target="main">课程查看</a></li>
+        <li><a href="../admin/onlineCourse.php?action=show" target="main">新增课程</a></li>
+      </ul>
+      <h3 class=" glyphicon glyphicon-facetime-video"><em></em> 视频管理</h3>
+      <ul>
+        <li><a href="../admin/video.php?action=show" target="main">视频查看</a></li>
+        <li><a href="../admin/uploadfile.php?action=add" target="main">添加课程视频</a></li>
+        <li><a href="videoStatic.html" target="main">视频统计</a></li>
+      </ul>
+      <h3 class=" glyphicon glyphicon-list"><em></em> 动态资讯</h3>
+      <ul>
+        <li><a href="../admin/newlist.php?action=show" target="main">资讯查看</a></li>
+        <li><a href="../admin/newlist.php?action=show" target="main">添加资讯</a></li>
+      </ul>
+      <h3 class=" glyphicon glyphicon-briefcase"><em></em> 预约管理</h3>
+      <ul>
+        <li><a href="../admin/orderCourse.php?action=show" target="main">预约查看</a></li>
+      </ul>
+      <h3 class=" glyphicon glyphicon-edit"><em></em> 论坛管理</h3>
+      <ul>
+        <li><a href="../admin/bbs.php?action=show" target="main">论坛查看</a></li>
+      </ul>
+      <h3 class=" glyphicon glyphicon-envelope"><em></em> 意见反馈</h3>
+      <ul>
+        <li><a href="../admin/advice.php?action=show" target="main">意见查看</a></li>
+      </ul>
+    </div>
+    <!-- sideMenu End --> 
+    
+    <script type="text/javascript">
+			jQuery(".sideMenu").slide({
+				titCell:"h3", //鼠标触发对象
+				targetCell:"ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
+				effect:"slideDown", //targetCell下拉效果
+				delayTime:300 , //效果时间
+				triggerTime:150, //鼠标延迟触发时间（默认150）
+				defaultPlay:true,//默认是否执行效果（默认true）
+				returnDefault:true //鼠标从.sideMen移走后返回默认状态（默认false）
+				});
+		</script> 
+</div>
+
+<script src="/static/js/amazeui.min.js"></script>
+
+
+
+</body>
+</html>

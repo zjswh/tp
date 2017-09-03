@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>用户</title>
+    </head>
+    <style>
+        p{width:100px;margin:80px auto 30px auto;text-align: center;}
+        #show,#msg{width:400px;margin:10px auto;}
+        #show textarea,#msg textarea{width:100%;height: 150px;}
+    </style>
+    <script src="/thinkphp/public/static/js/jquery.js"></script>
+
+    <body>
+    <iframe src="fromServer" width="0" height="0" frameborder="0"></iframe>
+    <p>用户</p>
+    <div id="show" >
+        <textarea name="show" cols="30" rows="10" readonly="readonly"></textarea>
+    </div>
+    
+    <div  id="msg">
+        <textarea name="text" id="text" cols="30" rows="10"></textarea>
+        <button id="btn">发送</button>
+    </div>
+     <script>
+        
+        $('#btn').click(function(){
+            var content = $('#text').val();
+            $.post('toServer', {"text":content}, function(ret) {
+                $('#show textarea').append('您向客服发送了'+ret.content+'\r\n');
+                $('#text').val('');
+            });
+        });
+        function showMsg(msg){
+            $('#show textarea').append('客服向您发送了'+msg+'\r\n');
+        }
+
+    </script>
+    </body>
+</html>

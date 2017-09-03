@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{include file="Index/style" /}
+		<link rel="stylesheet" href="/static/css/admin.css"/>
+		<link rel="stylesheet" type="text/css" href="/static/css/course-content.css">
+		<script src="/static/js/offCourse.js"></script>
+		<title></title>
+	</head>
+	<body>
+		
+		<div class="admin-biaogelist">
+			<div class="listbiaoti am-cf">
+				<ul class="am-icon-users">
+					线下培训
+				</ul>
+				<dl class="am-icon-home" style="float: right;">
+					当前位置： 首页 > <a href="offlineCourse.php?action=show"></a>
+				</dl>
+			</div>
+		</div>
+		<div id="course-content" style="margin-top:35px;">
+			<div id="manage">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div>
+							<form role="search" method="GET" action="../OfflineCourse/search">
+								<div class="form-group">
+									<input type="text" name="word" class="form-control" placeholder="请输入课程名称">
+									<button type="submit" class="btn btn-default">
+										查询
+									</button>
+								</div>
+							</form>
+						</div>
+						<table class="table table-bordered table-hover table-condensed" id="table">
+							<thead>
+								<tr>
+									<th>选择</th>
+									<th>课程编号</th>
+									<th>课程名称</th>
+									<th>报名进度</th>
+									<th>授课地址</th>
+									<th>主办方</th>
+									<th>承办方</th>
+									<th>培训发布时间</th>
+									<th>授课时间</th>
+									<th>费用</th>
+									<th>完成情况</th>
+									<th>操作</th>	
+								</tr>
+							</thead>
+							<tbody>
+								{volist name="offlinelist" id="list"}
+								<tr class="active tr">
+									<td>
+									<input type="checkbox"  class="checkbox">
+									<input type="hidden" value="{$list.id}" class="id" >
+									</td>
+									<td><script></script></td>
+									<td><a href="../admin/offChildCourse.php?action=show&id={$list.id}&title={@value->completename}" title="{@value->completename}">{$list.name}</a></td>
+									<td>{$list.num}/{$list.number}</td>
+									<td>{$list.address}</td>
+									<td>{$list.sponsor}</td>
+									<td>{$list.organizer}</td>
+									<td>{$list.pubdate}</td>
+									<td>{$list.tranning_date}</td>
+									<td>{$list.cost}</td>
+									<td>
+									<div class="progress">
+										<div class="progress-bar progress-bar-info"  role="progressbar" aria-valuenow="{$list.pro}" aria-valuemin="0" aria-valuemax="100" style="width:{$list.pro}%">
+											{$list.pro}%
+										</div>
+									</div>
+									</td>
+									<td>
+									<a href="../admin/offCourse.php?action=update&id={@value->id}">修改
+									</a>|<a href="../offlineCourse/delete?id={$list.id}" onClick="return confirm('您真的要删除这门课程吗？') ? true:false;">删除</a>
+									</td>
+								</tr>
+								{/volist}
+							</tbody>
+						</table>
+						<div class="page">
+							<ul class="pagination pagination-sm">
+								<input  type="button" class="btn btn-default" id='deleteAll' value="删除" >
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

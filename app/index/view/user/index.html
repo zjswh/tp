@@ -1,0 +1,10 @@
+<!-- {layout name="layout/newlayout" replace="[__REPLACE__]" /} -->
+{__NOLAYOUT__}
+<h2>用户列表（{$count}）</h2> 
+{volist name="list" id="user" mod="2"}
+<div class="info">
+ID：{$user.id}<br/>
+昵称：{$user.nickname}<br/>
+Name：{$user.name}<br/>
+</div>
+{/volist}
